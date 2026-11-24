@@ -1,0 +1,31 @@
+AI INTERVIEWER — QUICK START (Windows PowerShell)
+
+1) Extract AI-Interviewer-Complete-MVP.zip.
+
+2) Create a Gemini API key at https://aistudio.google.com/
+   Keep the key private; put it only in backend/.env.
+
+3) Backend — open PowerShell in the extracted AI-Interviewer folder:
+   cd .\backend
+   py -3 -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   Copy-Item .env.example .env
+   notepad .env
+
+   Set GEMINI_API_KEY=your_real_key_here and save.
+   Then run:
+   python manage.py runserver 127.0.0.1:8000
+
+4) Frontend — open a SECOND PowerShell window:
+   cd .\frontend
+   Copy-Item .env.example .env
+   npm install
+   npm run dev
+
+5) Open the Vite URL (usually http://localhost:5173).
+
+No database is configured or used. Django keeps live sessions in RAM.
+Do not run migrate/makemigrations. Restarting the backend clears sessions.
+
+See README.md for API details and troubleshooting.
